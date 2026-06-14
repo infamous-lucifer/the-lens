@@ -10,8 +10,8 @@
   --border:      #2A2A3A;
   --border-2:    #1E1E2E;
   --text-primary:   #F0EEF8;
-  --text-secondary: #8B89A0;
-  --text-muted:     #5A5870;
+  --text-secondary: #C0BED6;
+  --text-muted:     #A2A0B5;
   --accent:      #7C6AF5;
   --accent-dim:  rgba(124, 106, 245, 0.15);
   --accent-glow: rgba(124, 106, 245, 0.3);
@@ -81,7 +81,12 @@ img, svg {
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color var(--transition);
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+p a, .site-footer a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 a:hover {
