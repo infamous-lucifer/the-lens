@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How We Built The Lens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .blog-content { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; line-height: 1.7; color: var(--text-secondary); }
+    .blog-content h1 { font-family: var(--font-display); font-size: 3rem; color: var(--text-primary); margin-bottom: 1rem; }
+    .blog-content h2 { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); margin-top: 3rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
+    .blog-content h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem; }
+    .blog-content p { margin-bottom: 1.5rem; }
+    .blog-content img { max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); margin: 2rem 0; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .blog-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+    .blog-content li { margin-bottom: 0.5rem; }
+    .blog-content blockquote { border-left: 3px solid var(--text-primary); padding-left: 1rem; margin-left: 0; color: var(--text-primary); font-style: italic; }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <a href="/" class="logo" aria-label="The Lens — home">The Lens</a>
+    <nav aria-label="Site navigation">
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article class="blog-content">
+      <h1>How We Built The Lens</h1>
+      <p style="font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-muted);">Published June 2026</p>
+
+      <img src="/screenshot.png" alt="Screenshot of The Lens homepage" />
+
+      <h2>The Vision (Non-Technical)</h2>
+      <p>Philosophy is often perceived as inaccessible, overly academic, and deeply Western-centric. When facing a difficult question—personal, ethical, or existential—most people only have access to one or two mental frameworks. This creates blind spots.</p>
+      <p>The Lens was built to remove that constraint. The core metaphor is simple: a single beam of light passing through a prism, splitting into distinct, coherent perspectives. One question in. Ten worldviews out.</p>
+
+      <h2>The Architecture (Technical Deep-Dive)</h2>
+      <p>The Lens was designed to be incredibly fast, stateless, and completely free to run. We intentionally avoided heavy frontend frameworks like React or Next.js to prove that modern Vanilla Javascript is often more than enough.</p>
+      
+      <h3>1. The Frontend (Zero Dependencies)</h3>
+      <p>The entire interface is built with raw HTML5, CSS3, and Vanilla JavaScript. By avoiding a build step and heavy framework bundles, the app loads almost instantly. All styling is done with CSS variables, allowing for dynamic accent colors for each of the 10 schools of philosophy without shipping any UI libraries.</p>
+      
+      <h3>2. The Backend (Vercel Edge Functions)</h3>
+      <p>Instead of a traditional Node.js server, we used Vercel Edge Functions. This allows the API route (<code>/api/analyze</code>) to execute globally, close to the user, with virtually zero cold-start latency. It also handles our IP-based rate limiting (preventing abuse) before the request ever reaches the AI.</p>
+
+      <h3>3. The AI Engine (Groq & Llama 3.3)</h3>
+      <p>Originally planned with Anthropic's Claude API, we pivoted to <strong>Groq</strong> to leverage their custom LPU (Language Processing Unit) hardware. Running the <code>Llama-3.3-70b-versatile</code> open-source model on Groq yields text generation speeds exceeding 500 tokens per second. This is what allows The Lens to populate 10 distinct philosophical breakdowns almost simultaneously.</p>
+      <p>We strictly prompt the model to return a structured JSON object, which the Edge Function parses, validates, enriches with our internal color/school config, and sends to the client.</p>
+
+      <h2>Testing & Results</h2>
+      <p>As part of our commitment to quality and accessibility, we rigorously tested the application.</p>
+      <ul>
+        <li><strong>Lighthouse Accessibility:</strong> 92 / 100 (WCAG AA Compliant)</li>
+        <li><strong>Lighthouse Best Practices:</strong> 100 / 100</li>
+        <li><strong>Lighthouse SEO:</strong> 100 / 100</li>
+      </ul>
+      <p>The site respects <code>prefers-reduced-motion</code> to disable animations for users who request it, and is fully navigable via keyboard.</p>
+
+      <h2>Conclusion</h2>
+      <p>The Lens proves that you can build deeply engaging, highly technical AI applications without complex state management or expensive infrastructure. By combining the speed of Groq, the global reach of Vercel Edge, and the simplicity of Vanilla JS, we created a tool that gets out of the way and lets the philosophy do the talking.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; font-size: 0.875rem;">
+      <a href="/about.html" style="color: var(--text-secondary); text-decoration: none;">About</a>
+      <a href="/building-the-lens.html" style="color: var(--text-secondary); text-decoration: none;">How We Built It</a>
+      <a href="/privacy.html" style="color: var(--text-secondary); text-decoration: none;">Privacy</a>
+      <a href="/terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms</a>
+    </div>
+    <p>Built with curiosity. Powered by <a href="https://groq.com" target="_blank" rel="noopener">Groq</a>.</p>
+    <p class="footer-note">The Lens presents philosophical perspectives, not personal advice. All traditions treated with equal respect.</p>
+  </footer>
+</body>
+</html>

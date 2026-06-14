@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lens — See any question through 10 philosophical traditions</title>
+  <meta name="description" content="Type a question. See how Stoicism, Buddhism, Existentialism, Ubuntu, and 7 more philosophies would answer it." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Lens" />
+  <meta property="og:description" content="One question. Every perspective. See your dilemma through 10 of the world's great philosophical traditions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thelens.vercel.app" />
+  <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Lens" />
+  <meta name="twitter:description" content="One question. Every perspective." />
+  <meta name="twitter:image" content="/og-image.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://thelens.vercel.app" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "The Lens",
+    "description": "A tool that maps any question across 10 major philosophical traditions from around the world.",
+    "url": "https://thelens.vercel.app",
+    "applicationCategory": "EducationalApplication",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <a href="/" class="logo" aria-label="The Lens — home">The Lens</a>
+    <nav aria-label="Site navigation">
+      <a href="/about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero / Input Section -->
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-heading">
+      <p class="eyebrow" aria-hidden="true">Philosophy Engine</p>
+      <h1 id="hero-heading">
+        One question.<br />
+        <em>Every perspective.</em>
+      </h1>
+      <p class="hero-sub">
+        See your dilemma through 10 of the world's great philosophical traditions —
+        from Stoicism to Ubuntu, Taoism to Existentialism.
+      </p>
+
+      <!-- Input Form -->
+      <div class="input-wrapper" role="search" aria-label="Ask a philosophical question">
+        <label for="question-input" class="sr-only">Your question</label>
+        <textarea
+          id="question-input"
+          name="question"
+          placeholder="e.g. Should I prioritize ambition or contentment?"
+          maxlength="300"
+          rows="2"
+          aria-describedby="char-count input-hint"
+          autocomplete="off"
+          spellcheck="true"
+        ></textarea>
+        <div class="input-meta">
+          <span id="input-hint" class="input-hint">Ask anything moral, existential, or personal</span>
+          <span id="char-count" class="char-count" aria-live="polite" aria-atomic="true">0 / 300</span>
+        </div>
+        <button
+          id="analyze-btn"
+          class="btn-analyze"
+          disabled
+          aria-disabled="true"
+          aria-label="Analyze question through philosophical traditions"
+        >
+          <span class="btn-text">Analyze</span>
+          <span class="btn-loading" aria-hidden="true">Thinking<span class="dots"></span></span>
+        </button>
+      </div>
+
+      <p class="keyboard-hint" aria-hidden="true">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to analyze</p>
+    </section>
+
+    <!-- Results Section -->
+    <section
+      id="results-section"
+      class="results-section"
+      aria-label="Philosophical perspectives"
+      aria-live="polite"
+      aria-atomic="false"
+      hidden
+    >
+      <div class="results-header">
+        <h2 class="results-heading">
+          <span class="results-question-label">Analyzing:</span>
+          <span id="results-question" class="results-question"></span>
+        </h2>
+        <button class="btn-share-all" id="share-all-btn" aria-label="Share full result link">
+          Share result
+        </button>
+      </div>
+
+      <div id="cards-grid" class="cards-grid" role="list" aria-label="Philosophical perspectives">
+        <!-- Cards injected by JS -->
+      </div>
+
+      <div class="results-footer">
+        <button class="btn-new" id="new-question-btn">Ask another question</button>
+      </div>
+    </section>
+
+    <!-- Error Section -->
+    <section
+      id="error-section"
+      class="error-section"
+      aria-live="assertive"
+      aria-atomic="true"
+      hidden
+    >
+      <p id="error-message" class="error-message"></p>
+      <button class="btn-retry" id="retry-btn">Try again</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; font-size: 0.875rem;">
+      <a href="/about.html" style="color: var(--text-secondary); text-decoration: none;">About</a>
+      <a href="/building-the-lens.html" style="color: var(--text-secondary); text-decoration: none;">How We Built It</a>
+      <a href="/privacy.html" style="color: var(--text-secondary); text-decoration: none;">Privacy</a>
+      <a href="/terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms</a>
+    </div>
+    <p>Built with curiosity. Powered by <a href="https://groq.com" target="_blank" rel="noopener">Groq</a>.</p>
+    <p class="footer-note">The Lens presents philosophical perspectives, not personal advice. All traditions treated with equal respect.</p>
+  </footer>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
