@@ -52,8 +52,13 @@
       <p>Originally planned with Anthropic's Claude API, we pivoted to <strong>Groq</strong> to leverage their custom LPU (Language Processing Unit) hardware. Running the <code>Llama-3.3-70b-versatile</code> open-source model on Groq yields text generation speeds exceeding 500 tokens per second. This is what allows The Lens to populate 10 distinct philosophical breakdowns almost simultaneously.</p>
       <p>We strictly prompt the model to return a structured JSON object, which the Edge Function parses, validates, enriches with our internal color/school config, and sends to the client.</p>
 
+      <img src="/json-screenshot.png" alt="Structured JSON response from the Groq API" />
+
       <h2>Testing & Results</h2>
       <p>As part of our commitment to quality and accessibility, we rigorously tested the application.</p>
+      
+      <img src="/lighthouse-screenshot.png" alt="Lighthouse audit showing 92 Accessibility, 100 Best Practices, and 100 SEO" />
+      
       <ul>
         <li><strong>Lighthouse Accessibility:</strong> 92 / 100 (WCAG AA Compliant)</li>
         <li><strong>Lighthouse Best Practices:</strong> 100 / 100</li>
