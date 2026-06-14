@@ -8,7 +8,7 @@ The core metaphor: a single beam of light passing through a prism, splitting int
 
 ## 🌐 Live Demo
 
-*(Insert Vercel Deployment URL here)*
+[https://the-lens-nine.vercel.app](https://the-lens-nine.vercel.app)
 
 ## 🧠 Why This Exists
 
@@ -35,7 +35,7 @@ Most people, when facing a difficult question, only have access to one or two me
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/yourusername/the-lens.git
+   git clone https://github.com/infamous-lucifer/the-lens.git
    cd the-lens
    ```
 
@@ -74,4 +74,4 @@ Most people, when facing a difficult question, only have access to one or two me
 - Advaita Vedanta (Ancient India)
 
 ---
-*Built with curiosity. Powered by Claude.*
+*Built with curiosity. Powered by Groq.*
