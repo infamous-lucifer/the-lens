@@ -589,10 +589,13 @@ the-lens/
 ├── public/
 │   ├── index.html
 │   ├── about.html
-│   ├── examples.html
+│   ├── building-the-lens.html
 │   ├── style.css
 │   ├── app.js
-│   └── og-image.png
+│   ├── sitemap.xml
+│   ├── robots.txt
+│   ├── manifest.json
+│   └── favicon.svg
 ├── api/
 │   └── analyze.js        (Vercel Edge Function)
 ├── lib/
@@ -604,6 +607,7 @@ the-lens/
 ├── .gitignore
 ├── vercel.json            (headers, rewrites, security config)
 ├── package.json
+├── LICENSE                (MIT License)
 └── README.md
 ```
 
@@ -702,9 +706,9 @@ These are not v1 features. They are intentionally deferred.
 
 - **What is the final Vercel subdomain?** Resolved: Vercel auto-assigned (the-lens-nine.vercel.app).
 - **Should the GitHub repo be public?** Resolved: Yes, public from day one for portfolio signaling.
-- **Should the /examples page be built?** Resolved: Skipped for v1 to ship faster.
+- **Should the /examples page be built?** Resolved: Replaced with an in-depth `/building-the-lens` blog post outlining the technical journey.
 - **What does the OG image look like?** Resolved: Standard clean image for social sharing (future addition).
-- **Should there be a "How it works" section on the homepage?** Resolved: Minimalist homepage; deep dive moved to the /building-the-lens blog post.
+- **Is it MIT Licensed?** Resolved: Yes, an MIT License has been added.
 - **Should Nihilism's card be visually distinct?** Resolved: It uses a muted `#9A9A9A` gray to reflect the tradition visually while remaining legible.
 
 ---

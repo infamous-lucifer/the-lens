@@ -19,9 +19,10 @@ Most people, when facing a difficult question, only have access to one or two me
 - **Stateless Architecture:** No database, no user accounts, no tracking. Total privacy.
 - **Vercel Edge Functions:** Blazing fast API routing with built-in rate limiting and abuse protection.
 - **Zero-Dependency Frontend:** Built entirely with Vanilla JavaScript, HTML, and CSS. No build step, no bloated framework.
-- **Groq AI Integration:** Powered by Groq's insanely fast inference engine running Llama models, returning zero-fluff JSON answers in plain, non-academic language.
+- **Groq AI Integration:** Powered by Groq's insanely fast inference engine running Llama 3.3, returning zero-fluff JSON answers in plain, non-academic language.
+- **Progressive Web App & SEO Ready:** Includes standard `sitemap.xml`, `robots.txt`, `manifest.json`, and an SVG favicon.
 - **Fully Accessible:** WCAG 2.1 AA compliant, screen-reader friendly, and respects `prefers-reduced-motion`.
-- **Shareable URLs:** Every query updates the URL, allowing users to share the exact question to LinkedIn or Twitter.
+- **Shareable URLs:** Every query updates the URL, allowing users to share the exact question.
 
 ## 🛠 Tech Stack
 
@@ -72,6 +73,10 @@ Most people, when facing a difficult question, only have access to one or two me
 - Confucianism (Ancient China)
 - Nihilism (Western Modern)
 - Advaita Vedanta (Ancient India)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 *Built with curiosity. Powered by Groq.*
